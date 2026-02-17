@@ -145,12 +145,6 @@
             right: 0;
             bottom: 0;
             background: radial-gradient(circle at 30% 50%, rgba(201, 166, 107, 0.1) 0%, transparent 50%);
-            animation: heroGlow 8s ease-in-out infinite;
-        }
-
-        @keyframes heroGlow {
-            0%, 100% { opacity: 0.3; }
-            50% { opacity: 0.6; }
         }
 
         .hero-content {
@@ -158,25 +152,12 @@
             margin: 0 auto;
             position: relative;
             z-index: 1;
-            animation: fadeInUp 1s ease-out;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
         }
 
         .hero h1 {
             font-size: 3rem;
             margin-bottom: var(--spacing-md);
             letter-spacing: 0.05em;
-            animation: fadeInUp 1s ease-out 0.2s both;
         }
 
         .hero-subtitle {
@@ -185,7 +166,6 @@
             opacity: 0.95;
             font-weight: 300;
             letter-spacing: 0.08em;
-            animation: fadeInUp 1s ease-out 0.4s both;
         }
 
         .hero-features {
@@ -585,8 +565,6 @@
             color: white;
             font-weight: 600;
             font-size: 1rem;
-            animation: floatingPulse 2s ease-in-out infinite;
-            transition: all 0.3s ease;
         }
 
         /* Floating Navigation Menu */
@@ -673,7 +651,6 @@
             align-items: center;
             justify-content: center;
             font-size: 1.2rem;
-            animation: phoneRing 1.5s ease-in-out infinite;
         }
 
         .floating-phone-text {
@@ -694,27 +671,11 @@
         }
 
         @keyframes floatingPulse {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-8px);
-            }
+            0%, 100% { transform: translateY(0); }
         }
 
         @keyframes phoneRing {
-            0%, 100% {
-                transform: rotate(0deg);
-            }
-            10%, 30% {
-                transform: rotate(-15deg);
-            }
-            20%, 40% {
-                transform: rotate(15deg);
-            }
-            50% {
-                transform: rotate(0deg);
-            }
+            0%, 100% { transform: rotate(0deg); }
         }
 
         /* Responsive for mobile */
@@ -757,21 +718,7 @@
             }
         }
 
-        /* Animation on scroll */
-        @keyframes slideInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        .animate-in {
-            animation: slideInLeft 0.6s ease-out;
-        }
+        /* Animation on scroll - removed */
     </style>
 </head>
 <body>
@@ -863,7 +810,7 @@
             <p class="section-subtitle">ご葬儀後のサポートも充実しております</p>
         </div>
 
-        <div class="services-grid">
+        <div class="services-grid" style="grid-template-columns: repeat(2, 1fr);">
             <!-- ご法要サポート -->
             <div class="service-card">
                 <h3>ご法要サポート</h3>
@@ -882,7 +829,6 @@
                 <h3>長距離搬送</h3>
                 <p>県外や遠方でご逝去された場合も、安心してお任せください。日本全国どこからでも、故人様を丁寧にお連れいたします。</p>
                 <ul class="service-features">
-                    <li>日本全国対応</li>
                     <li>24時間いつでも対応</li>
                     <li>専用車両での搬送</li>
                     <li>丁寧な取り扱い</li>
@@ -899,6 +845,19 @@
                     <li>石材店との調整</li>
                     <li>改葬先のご提案</li>
                     <li>永代供養のご案内</li>
+                    <li>丁寧なご相談対応</li>
+                </ul>
+            </div>
+
+            <!-- 海洋散骨 -->
+            <div class="service-card">
+                <h3>海洋散骨</h3>
+                <p>故人様のご遺骨を海へ還す、自然葬のひとつです。雄大な海を愛した方や、お墓を持たない形を希望される方に選ばれております。</p>
+                <ul class="service-features">
+                    <li>散骨のご手配</li>
+                    <li>船のチャーター対応</li>
+                    <li>ご家族での乗船可能</li>
+                    <li>粉骨サービス対応</li>
                     <li>丁寧なご相談対応</li>
                 </ul>
             </div>
@@ -1121,24 +1080,7 @@
             }
         });
 
-        // Intersection Observer for animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate-in');
-                }
-            });
-        }, observerOptions);
-
-        // Observe service cards and flow steps
-        document.querySelectorAll('.service-card, .flow-step').forEach(el => {
-            observer.observe(el);
-        });
+        // Intersection Observer for animations - removed
     </script>
 </body>
 </html>
