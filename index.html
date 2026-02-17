@@ -490,6 +490,12 @@
             font-size: 0.9rem;
         }
 
+        @media (max-width: 768px) {
+            .additional-services-grid {
+                grid-template-columns: 1fr !important;
+            }
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .header-container {
@@ -810,7 +816,7 @@
             <p class="section-subtitle">ご葬儀後のサポートも充実しております</p>
         </div>
 
-        <div class="services-grid" style="grid-template-columns: repeat(2, 1fr);">
+        <div class="services-grid additional-services-grid" style="grid-template-columns: repeat(2, 1fr);">
             <!-- ご法要サポート -->
             <div class="service-card">
                 <h3>ご法要サポート</h3>
